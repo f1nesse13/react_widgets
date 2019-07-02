@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Clock from './frontend/clock';
 function Root() {
   return (
     <div>
-      <h1>from root</h1>
+      <Clock />
     </div>
   );
 }
