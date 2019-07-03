@@ -9,18 +9,22 @@ class Tabs extends React.Component {
     this.updateIndex = this.updateIndex.bind(this);
   }
 
-  render() {
-    return (
-      <div className="tabs">
-        <Header tabs={this.tab} onClick={this.updateIndex} />
-        <article className="tabs-content">{this.tab[this.state.tabIdx].content}</article>
-      </div>
-    );
-  }
-
   updateIndex(event) {
     const tabIdx = event.target.dataset.idx;
     this.setState({ tabIdx });
+  }
+
+  render() {
+    return (
+      <div className="tabs">
+        <div className="header">
+          <Header activeClass={this.state.tabIdx} tabs={this.tab} onClick={this.updateIndex} />
+        </div>
+        <div className="tabs-content">
+          <article className="tabs-content">{this.tab[this.state.tabIdx].content}</article>
+        </div>
+      </div>
+    );
   }
 }
 

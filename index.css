@@ -78,44 +78,44 @@ body {
 
 .tabs {
 	margin-top: 50px;
-	width: 200px;
-	height: 200px;
-	color: #ddd;
+	width: 210px;
+	height: 250px;
+	color: #000;
 	border-radius: 10px;
-	background-color: #970f0f;
+	border: 1px solid #000;
+	border-top: none;
 }
 
 .tab-headers {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 200px;
 	border-radius: 10px;
-	/* border: 2px solid #000; */
 }
 
 .tab-headers h1 {
-	font-size: 1.2rem;
+	font-size: 1.5rem;
+	background-color: #14d1d1;
 	padding: 10px;
-	border-radius: 10px;
-	/* background-color: #970f0f; */
+	width: 75px;
+	border: 2px solid #000;
+	border-top-right-radius: 10px; 
+	border-top-left-radius: 10px; 
 }
+
 .tabs article {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 200px;
-	background-color: #970f0f;
-	border: 3px solid #000;
-	border-radius: 5px;
-	border-top: none;
 	height: 200px;
+	background-color: #14d1d1;
 }
 
-.tab-headers h1:first-child {
-	/* border: 2px solid #000;
-	box-shadow: 2px 2px 1px #000; */
+.tab-headers h1:hover {
+	font-weight: bold;
 }
 
-
+h1.active {
+	border-bottom: 1px solid #14d1d1;
+}
 

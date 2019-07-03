@@ -195,17 +195,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Header = function Header(_ref) {
-  var tabs = _ref.tabs,
-      onClick = _ref.onClick;
+var Header = function Header(props) {
+  var selected = props.activeClass;
+  var headers = props.tabs.map(function (tab, i) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      key: i,
+      "data-idx": i,
+      onClick: props.onClick,
+      className: "".concat(i === selected ? 'active' : '')
+    }, tab.title);
+  });
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "tab-headers"
-  }, tabs.map(function (tab, i) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-      "data-idx": i,
-      onClick: onClick
-    }, tab.title);
-  }));
+  }, headers);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
@@ -265,24 +267,29 @@ function (_React$Component) {
   }
 
   _createClass(Tabs, [{
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tabs"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        tabs: this.tab,
-        onClick: this.updateIndex
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
-        className: "tabs-content"
-      }, this.tab[this.state.tabIdx].content));
-    }
-  }, {
     key: "updateIndex",
     value: function updateIndex(event) {
       var tabIdx = event.target.dataset.idx;
       this.setState({
         tabIdx: tabIdx
       });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tabs"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        activeClass: this.state.tabIdx,
+        tabs: this.tab,
+        onClick: this.updateIndex
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "tabs-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
+        className: "tabs-content"
+      }, this.tab[this.state.tabIdx].content)));
     }
   }]);
 
