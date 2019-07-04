@@ -52,11 +52,14 @@ body {
 }
 
 .clock-title,
-.time-date-container {
+.time-date-container,
+.weather-title,
+.weather-text {
   font: 300 40px 'Russo One', sans-serif;
 }
 
-.time-date-container {
+.time-date-container,
+.weather-text {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -70,7 +73,8 @@ body {
 }
 
 
-.time-date-container p {
+.time-date-container p,
+.weather-text p {
 	display: flex;
 	justify-content: space-between;
 	padding: 5px;
@@ -111,11 +115,25 @@ body {
 	background-color: #14d1d1;
 }
 
-.tab-headers h1:hover {
-	font-weight: bold;
+.tab-headers h1:hover { font-weight: bold; }
+
+h1.active { border-bottom: 1px solid #14d1d1; }
+
+.weather-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-h1.active {
-	border-bottom: 1px solid #14d1d1;
+#main>div {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
+.clock, .tabs, .weather-widget, .autocomplete { margin-top: 50px; }
+.clock { order: 1; }
+.weather-widget { order: 2; }
+.tabs {	order: 3; }

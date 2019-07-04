@@ -18,7 +18,11 @@ class Tabs extends React.Component {
     return (
       <div className="tabs">
         <div className="header">
-          <Header activeClass={this.state.tabIdx} tabs={this.tab} onClick={this.updateIndex} />
+          <Header
+            activeClass={parseInt(this.state.tabIdx)}
+            tabs={this.tab}
+            onClick={this.updateIndex}
+          />
         </div>
         <div className="tabs-content">
           <article className="tabs-content">{this.tab[this.state.tabIdx].content}</article>
