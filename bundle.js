@@ -136,15 +136,45 @@ function (_React$Component) {
   }
 
   _createClass(Autocomplete, [{
+    key: "updateNames",
+    value: function updateNames(e) {
+      console.log(e.target.value.toString());
+      this.setState({
+        inputVal: e.target.value.toString()
+      });
+    }
+  }, {
+    key: "nameClickHandler",
+    value: function nameClickHandler(e) {
+      this.setState({
+        inputVal: e.target.innerText
+      });
+    } //
+
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var nameList = this.props.nameList;
       var names = nameList.map(function (name, i) {
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: i
-        }, name);
+        if (name.toLowerCase().startsWith(_this2.state.inputVal) || _this2.state.inputVal === '') {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            onClick: _this2.nameClickHandler.bind(_this2),
+            key: i
+          }, name);
+        }
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, names);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "autocomplete"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        value: this.state.inputVal,
+        className: "autocomplete-input",
+        onChange: this.updateNames.bind(this)
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "autocomplete-list"
+      }, names));
     }
   }]);
 
@@ -420,7 +450,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var https__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! https */ "./node_modules/https-browserify/index.js");
 /* harmony import */ var https__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(https__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _key__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../key */ "./key.js");
+/* harmony import */ var _key__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../key */ "./key.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -479,7 +509,7 @@ function (_React$Component) {
     value: function getWeather(_long, lat) {
       var that = this;
       var req = new XMLHttpRequest();
-      req.open('GET', "http://api.openweathermap.org/data/2.5/weather?lat=".concat(lat, "&lon=").concat(_long, "&units=imperial&appid=").concat(_key__WEBPACK_IMPORTED_MODULE_2__["api_key"]), true);
+      req.open('GET', "http://api.openweathermap.org/data/2.5/weather?lat=".concat(lat, "&lon=").concat(_long, "&units=imperial&appid=").concat(_key__WEBPACK_IMPORTED_MODULE_3__["api_key"]), true);
 
       req.onload = function () {
         if (req.status >= 200 && req.status < 400) {
