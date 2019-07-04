@@ -86,7 +86,7 @@ body {
 	height: 250px;
 	color: #000;
 	border-radius: 10px;
-	border: 1px solid #000;
+	border: 2px solid #000;
 	border-top: none;
 }
 
@@ -102,17 +102,24 @@ body {
 	background-color: #14d1d1;
 	padding: 10px;
 	width: 75px;
-	border: 2px solid #000;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
 	border-top-right-radius: 10px; 
 	border-top-left-radius: 10px; 
+}
+
+.tab-headers h1:not(:last-of-type) {
+	border-right: 2px solid #000;
 }
 
 .tabs article {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 200px;
+	height: 201px;
 	background-color: #14d1d1;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .tab-headers h1:hover { font-weight: bold; }
