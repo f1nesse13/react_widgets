@@ -1,7 +1,10 @@
 import React from 'react';
 import Clock from './frontend/clock';
 import Tabs from './frontend/tabs';
-function Root() {
+import Weather from './frontend/weather';
+import Autocomplete from './frontend/autocomplete';
+
+const Root = props => {
   return (
     <div>
       <Clock />
@@ -12,8 +15,10 @@ function Root() {
           { title: 'Three', content: 'Third tabs content' }
         ]}
       />
+      <Weather />
+      <Autocomplete nameList={props.nameList} />
     </div>
   );
-}
+};
 
 export default Root;
