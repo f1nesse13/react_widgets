@@ -82,6 +82,7 @@ body {
 
 .tabs {
 	margin-top: 50px;
+	margin-right: 100px;
 	width: 210px;
 	height: 250px;
 	color: #000;
@@ -140,7 +141,43 @@ h1.active { border-bottom: 1px solid #14d1d1; }
 	align-items: center;
 }
 
+.small-widgets {
+	display: flex;
+	justify-content: space-between;
+}
+
+.autocomplete-title {
+	font: 300 1.5rem 'Russo One';
+	letter-spacing: 1px;
+}
+
+.autocomplete-form {
+	height: 290px;
+	padding:15px;
+	border: 2px solid #000;
+	border-radius: 10px;
+	background: #14d1d1;
+	font: 700 1rem 'Helvetica';
+	color: #000;
+}
+.autocomplete-input {
+	border: 2px solid #14d1d1;
+	border-radius: 5px;
+	margin: 5px;
+	margin-bottom: 10px;
+	padding: 5px;
+	font-size: 1rem;
+}
+
+.autocomplete-input:focus {
+	outline: none;
+}
+
+.autocomplete-form ul {
+	list-style: inside circle;
+}
+.autocomplete-form ul li {
+	padding: 4px;
+	margin-left: 10px;
+}
 .clock, .tabs, .weather-widget, .autocomplete { margin-top: 50px; }
-.clock { order: 1; }
-.weather-widget { order: 2; }
-.tabs {	order: 3; }

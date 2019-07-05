@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Autocomplete extends React.Component {
   constructor(props) {
@@ -18,7 +19,10 @@ export default class Autocomplete extends React.Component {
   render() {
     const { nameList } = this.props;
     const names = nameList.map((name, i) => {
-      if (name.toLowerCase().startsWith(this.state.inputVal) || this.state.inputVal === '') {
+      if (
+        name.toLowerCase().startsWith(this.state.inputVal.toLowerCase()) ||
+        this.state.inputVal === ''
+      ) {
         return (
           <li onClick={this.nameClickHandler.bind(this)} key={i}>
             {name}
@@ -29,13 +33,24 @@ export default class Autocomplete extends React.Component {
 
     return (
       <div className="autocomplete">
-        <input
-          type="text"
-          value={this.state.inputVal}
-          className="autocomplete-input"
-          onChange={this.updateNames.bind(this)}
-        />
-        <ul className="autocomplete-list">{names}</ul>
+        <h1 className="autocomplete-title">Autocomplete</h1>
+        <div className="autocomplete-form">
+          <input
+            type="text"
+            value={this.state.inputVal}
+            className="autocomplete-input"
+            onChange={this.updateNames.bind(this)}
+          />
+          <ul className="autocomplete-list">
+            <ReactCSSTransitionGroup
+              transitionName="auto"
+              transitionEnterTimeout={500}
+              transitionLeaveTimeout={500}
+            >
+              {names}
+            </ReactCSSTransitionGroup>
+          </ul>
+        </div>
       </div>
     );
   }

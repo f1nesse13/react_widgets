@@ -8,15 +8,17 @@ const Root = props => {
   return (
     <div>
       <Clock />
-      <Tabs
-        tabArray={[
-          { title: 'One', content: 'First tabs content' },
-          { title: 'Two', content: 'Second tabs content' },
-          { title: 'Three', content: 'Third tabs content' }
-        ]}
-      />
       <Weather />
-      <Autocomplete nameList={props.nameList} />
+      <div className="small-widgets">
+        <Tabs
+          tabArray={[
+            { title: 'One', content: 'First tabs content' },
+            { title: 'Two', content: 'Second tabs content' },
+            { title: 'Three', content: 'Third tabs content' }
+          ]}
+        />
+        <Autocomplete nameList={props.nameList} />
+      </div>
     </div>
   );
 };
